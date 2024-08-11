@@ -1,0 +1,94 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+      "title": "VLife: CRM API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:9292"
+      }
+    ],
+    "tags": [
+      {
+        "name": "CRM",
+        "description": "Everything about users data"
+      }
+    ],
+    "paths": {
+      "/v1/user/status/": {
+        "post": {
+          "tags": ["CRM"],
+          "summary": "Check status of user",
+          "description": "Endpoint to check status of user",
+          "parameters": [
+            {
+              "name": "username",
+              "in": "query",
+              "description": "Username of the user",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      "/v1/user/history/": {
+        "post": {
+          "tags": ["CRM"],
+          "summary": "Check status of user",
+          "description": "Endpoint to check history of user",
+          "parameters": [
+            {
+              "name": "username",
+              "in": "query",
+              "description": "Username of the user",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "date_from",
+              "in": "query",
+              "description": "Start date for the transaction history",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "date_to",
+              "in": "query",
+              "description": "End date for the transaction history",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      }
+    },
+    "components": {}
+  }
+  
